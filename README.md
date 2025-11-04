@@ -6,7 +6,7 @@ Konfigurasi ini menggunakan **Full Geo** dan **rule-provider** agar mudah dikelo
 
 ---
 
-**Target Core:** Konfigurasi ini berasal dari backup **DMS Core** dan ditujukan untuk arsitektur **x86_64**.
+**Target Core:** Konfigurasi ini berasal dari backup **DMS** dan ditujukan untuk arsitektur **x86_64**, **_silahkan rubah core sesuai dengan device yang Anda gunakan._**
 
 ---
 
@@ -15,6 +15,7 @@ Konfigurasi ini menggunakan **Full Geo** dan **rule-provider** agar mudah dikelo
 Konfigurasi ini dirancang untuk mendukung setup **Dual Modem** (atau lebih) secara *native*.
 
 * **Bagaimana Caranya?** Di dalam file templat `proxy_provider/` (misal: `pp-indo.yaml`), Anda akan menemukan baris:
+  
     ```yaml
     interface-name: eth1
     ```
@@ -45,17 +46,17 @@ Anda bisa menggunakan file `config-wrt.yaml` ini sebagai file konfigurasi utama 
 1.  Buka OpenClash -> `Config Manage`.
 2.  Buat file subscribe baru dan tempel URL di bawah ini:
 
-    *(Ganti `NAMA-REPO-ANDA` dengan nama repositori Anda, misal: OpenClash-Config)*
     ```
-    [https://raw.githubusercontent.com/hail-eric/NAMA-REPO-ANDA/main/config-wrt.yaml](https://raw.githubusercontent.com/hail-eric/NAMA-REPO-ANDA/main/config-wrt.yaml)
+    [https://raw.githubusercontent.com/hail-eric/OpenClash-Config/main/config-wrt.yaml](https://raw.githubusercontent.com/hail-eric/OpenClash-Config/main/config-wrt.yaml)
     ```
+    
 3.  Klik `Subscribe` dan gunakan profil tersebut.
 
 ## 📥 Download Backup (Untuk Restore Langsung)
 
-[cite_start]Jika Anda tidak ingin subscribe, Anda bisa mengunduh file backup `.tar.gz`  utuh dan me-restore-nya langsung di OpenClash (`Config Manage` -> `Upload Backup`).
+Jika Anda tidak ingin subscribe, Anda bisa mengunduh file backup `.tar.gz`  utuh dan me-restore-nya langsung di OpenClash (`Config Manage` -> `Upload Backup`).
 
-[**➡️ Download Backup v1.0 (klik di sini)**]([https://github.com/hail-eric/NAMA-REPO-ANDA/releases/download/v1.0/Backup-OpenClash-DMS-x86_64-2025-11-04-20-33-12.tar.gz](https://github.com/hail-eric/OpenClash-Config/releases/tag/v1.0))
+[**➡️ Download Backup v1.0 (klik di sini)**](https://github.com/hail-eric/OpenClash-Config/releases/download/v1.0/Backup-OpenClash-DMS-x86_64-2025-11-04-20-33-12.tar.gz)
 
 ---
 
@@ -78,8 +79,6 @@ Anda **HARUS** mengedit file di dalam `proxy_provider/` (seperti `pp-indo.yaml` 
 ### 📬 Hubungi Saya
 
 Jika ada masalah atau pertanyaan, hubungi saya di Telegram:
-
-<br>
 
 <a href="https://t.me/hail_ct0S" target="_blank">
   <img src="https://img.shields.io/badge/Telegram-@hail_ct0S-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram: @hail_ct0S">
