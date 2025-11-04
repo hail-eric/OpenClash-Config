@@ -51,6 +51,12 @@ Anda bisa menggunakan file `config-wrt.yaml` ini sebagai file konfigurasi utama 
     ```
 3.  Klik `Subscribe` dan gunakan profil tersebut.
 
+## 📥 Download Backup (Untuk Restore Langsung)
+
+[cite_start]Jika Anda tidak ingin subscribe, Anda bisa mengunduh file backup `.tar.gz`  utuh dan me-restore-nya langsung di OpenClash (`Config Manage` -> `Upload Backup`).
+
+[**➡️ Download Backup v1.0 (klik di sini)**]([https://github.com/hail-eric/NAMA-REPO-ANDA/releases/download/v1.0/Backup-OpenClash-DMS-x86_64-2025-11-04-20-33-12.tar.gz](https://github.com/hail-eric/OpenClash-Config/releases/tag/v1.0))
+
 ---
 
 ## ⚠️ PERINGATAN PENTING
@@ -72,6 +78,9 @@ Anda **HARUS** mengedit file di dalam `proxy_provider/` (seperti `pp-indo.yaml` 
 ### 📬 Hubungi Saya
 
 Jika ada masalah atau pertanyaan, hubungi saya di Telegram:
+
+<br>
+
 <a href="https://t.me/hail_ct0S" target="_blank">
   <img src="https://img.shields.io/badge/Telegram-@hail_ct0S-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram: @hail_ct0S">
 </a>
