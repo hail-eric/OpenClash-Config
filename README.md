@@ -1,3 +1,20 @@
+<p align="center">
+  <img src="httpsT://raw.githubusercontent.com/MetaCubeX/metacubexd/gh-pages/assets/Meta.png" alt="Config OpenClash" width="200"/>
+</p>
+
+<h1 align="center">
+  Config OpenClash - Meta Kernel
+</h1>
+
+<p align="center">
+  <a href="https://github.com/hail-eric/OpenClash-Config/releases/latest"><img src="https://img.shields.io/github/v/release/hail-eric/OpenClash-Config?style=for-the-badge&label=Latest%20Release&color=blue" alt="Latest Release"></a>
+  <img src="https://img.shields.io/github/license/hail-eric/OpenClash-Config?style=for-the-badge&color=orange" alt="License">
+</p>
+
+<hr>
+
+...
+
 # 🚀 Konfigurasi OpenClash oleh B Σ N (hail-eric)
 
 File konfigurasi OpenClash (Clash Meta) yang sudah dioptimalkan untuk kebutuhan gaming, streaming, dan sosial media.
