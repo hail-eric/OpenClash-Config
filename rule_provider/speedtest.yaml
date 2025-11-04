@@ -1,0 +1,35 @@
+payload:
+  # 🎯 Fast.com (Netflix)
+  - DOMAIN-SUFFIX,fast.com
+  - DOMAIN-SUFFIX,api.fast.com
+  # 🎯 Speedtest.net (Ookla)
+  - DOMAIN-SUFFIX,speedtest.net
+  - DOMAIN-SUFFIX,jakarta.speed.co.id
+  - DOMAIN-SUFFIX,jakarta.speed.co.id
+  - DOMAIN-SUFFIX,speedtest.net
+  - DOMAIN-SUFFIX,cdn.speedtest.net
+  - DOMAIN-SUFFIX,prodhost-nl-ams.speedtest.net
+  - DOMAIN-SUFFIX,ooklaserver.net
+  - DOMAIN-SUFFIX,ooklaserver.net
+  # 🎯 Speedtest AWS (Amazon)
+  - DOMAIN-SUFFIX,awsspeedtest.amazonaws.com
+  # 🎯 Measurement Lab (used in some speedtests like Google's)
+  - DOMAIN-SUFFIX,measurementlab.net
+  - DOMAIN-SUFFIX,ndt.iupui.mlab1.lga05.measurementlab.net
+  - DOMAIN-SUFFIX,ndt.iupui.mlab1.sin02.measurementlab.net
+  # 🎯 Cloudflare Speedtest
+  - DOMAIN-SUFFIX,speed.cloudflare.com
+  - DOMAIN-SUFFIX,cloudflareinsights.com
+  - DOMAIN-SUFFIX,cloudflareclient.com
+  # 🎯 Google Speed Test (used by some Android tools)
+  - DOMAIN-SUFFIX,speedtest.googlefiber.net
+  - DOMAIN-SUFFIX,speedtest-lax1.googlefiber.net
+  # 🎯 Telkom Indonesia Speedtest
+  - DOMAIN-SUFFIX,speedtest.telin.co.id
+  - DOMAIN-SUFFIX,speedtest.telkom.net.id
+  - DOMAIN-SUFFIX,speedtest.plasa.com
+  # 🎯 Speedtest by Speedcheck.org
+  - DOMAIN-SUFFIX,speedcheck.org
+  - DOMAIN-SUFFIX,speedcheck.org
+  - DOMAIN-SUFFIX,www.speedcheck.org
+  - DOMAIN-SUFFIX,testserver.speedcheck.org

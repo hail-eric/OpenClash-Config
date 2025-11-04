@@ -1,0 +1,296 @@
+---
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+experimental:
+  sniff-tls-sni: true
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: benjamin
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+ipv6: false
+geodata-mode: true
+geodata-loader: memconservative
+geodata-api: false
+geoip-dat: geoip.dat
+geosite-dat: geosite.dat
+country-mmdb: country.mmdb
+geoip-asn-db: geoip.db
+global-client-fingerprint: chrome
+geox-url:
+  geosite: https://github.com/rizkikotet-dev/GeoSite-WRT/releases/download/latest/geosite.dat
+  geoip: https://github.com/rizkikotet-dev/GeoSite-WRT/releases/download/latest/geoip.dat
+  mmdb: https://github.com/rizkikotet-dev/GeoSite-WRT/releases/download/latest/country.mmdb
+  asn: https://github.com/rizkikotet-dev/GeoSite-WRT/releases/download/latest/geoip.db
+geodata-path: "/etc/openclash/"
+keep-alive-interval: 15
+proxies:
+- name: "\U0001F4F4 MODEM 1 \U0001F4F4"
+  type: direct
+  interface-name: eth1
+- name: "\U0001F4F4 MODEM 2 \U0001F4F4"
+  type: direct
+  interface-name: usb0
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  cache-algorithm: arc
+  prefer-h3: false
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: false
+  listen: 0.0.0.0:7874
+  default-nameserver:
+  - 9.9.9.9
+  - 149.112.112.112
+  nameserver:
+  - https://free.bravedns.com/dns-query
+  - https://dns.alidns.com/dns-query
+  fallback:
+  - tls://one.one.one.one
+  - tls://security.cloudflare-dns.com
+  proxy-server-nameserver:
+  - dhcp://usb0
+  - dhcp://eth1
+  - 112.215.198.248
+  - 112.215.198.254
+sniffer:
+  enable: true
+  override-destination: true
+  sniff:
+    QUIC:
+      ports:
+      - 443
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+  force-domain:
+  - "+.netflix.com"
+  - "+.nflxvideo.net"
+  - "+.amazonaws.com"
+  - "+.media.dssott.com"
+  skip-domain:
+  - "+.apple.com"
+  - Mijia Cloud
+  - dlg.io.mi.com
+  - "+.oray.com"
+  - "+.sunlogin.net"
+  - "+.push.apple.com"
+  force-dns-mapping: true
+  parse-pure-ip: true
+tun:
+  enable: true
+  stack: system
+  device: utun
+  dns-hijack:
+  - 127.0.0.1:53
+  endpoint-independent-nat: true
+  auto-route: false
+  auto-detect-interface: false
+  auto-redirect: false
+  strict-route: false
+profile:
+  store-selected: true
+proxy-groups:
+- name: "\U0001F4F6 MODEM 1 \U0001F4F6"
+  type: select
+  proxies:
+  - "\U0001F7E2 BESTPING 1 \U0001F7E2"
+  - "\U0001F7E0 FALLBACK 1 \U0001F7E0"
+  - "\U0001F7E1 BALANCE 1 \U0001F7E1"
+- name: "\U0001F4F6 MODEM 2 \U0001F4F6"
+  type: select
+  proxies:
+  - "\U0001F7E2 BESTPING 2 \U0001F7E2"
+  - "\U0001F7E0 FALLBACK 2 \U0001F7E0"
+  - "\U0001F7E1 BALANCE 2 \U0001F7E1"
+- name: "\U0001F51B REQUEST DIRECT \U0001F51B"
+  type: select
+  proxies:
+  - PASS
+  - "\U0001F4E1 DIRECT MODEM 1 \U0001F4E1"
+  - "\U0001F4E1 DIRECT MODEM 2 \U0001F4E1"
+  - "\U0001F4A3 DIRECT-LB \U0001F4A3"
+- name: "\U0001F4E1 DIRECT MODEM 1 \U0001F4E1"
+  type: select
+  proxies:
+  - PASS
+  - "\U0001F4F4 MODEM 1 \U0001F4F4"
+- name: "\U0001F4E1 DIRECT MODEM 2 \U0001F4E1"
+  type: select
+  proxies:
+  - PASS
+  - "\U0001F4F4 MODEM 2 \U0001F4F4"
+- name: "\U0001F4A3 DIRECT-LB \U0001F4A3"
+  type: load-balance
+  strategy: round-robin
+  proxies:
+  - PASS
+  - "\U0001F4E1 DIRECT MODEM 1 \U0001F4E1"
+  - "\U0001F4E1 DIRECT MODEM 2 \U0001F4E1"
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+- name: "⚡ LB MODEM ⚡"
+  type: load-balance
+  strategy: round-robin
+  proxies:
+  - "\U0001F4F6 MODEM 1 \U0001F4F6"
+  - "\U0001F4F6 MODEM 2 \U0001F4F6"
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+- name: "\U0001F7E2 BESTPING 1 \U0001F7E2"
+  type: url-test
+  use:
+  - PP-Indo
+  url: http://cp.cloudflare.com/generate_204
+  interval: 180
+- name: "\U0001F7E0 FALLBACK 1 \U0001F7E0"
+  type: fallback
+  use:
+  - PP-Indo
+  url: http://cp.cloudflare.com/generate_204
+  interval: 180
+- name: "\U0001F7E1 BALANCE 1 \U0001F7E1"
+  type: load-balance
+  strategy: round-robin
+  use:
+  - PP-Indo
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+- name: "\U0001F7E2 BESTPING 2 \U0001F7E2"
+  type: url-test
+  use:
+  - PP-SG
+  url: http://cp.cloudflare.com/generate_204
+  interval: 180
+- name: "\U0001F7E0 FALLBACK 2 \U0001F7E0"
+  type: fallback
+  use:
+  - PP-SG
+  url: http://cp.cloudflare.com/generate_204
+  interval: 180
+- name: "\U0001F7E1 BALANCE 2 \U0001F7E1"
+  type: load-balance
+  strategy: round-robin
+  use:
+  - PP-SG
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+- name: "\U0001F30E SERVER-BROWSING \U0001F30E"
+  type: select
+  proxies:
+  - "\U0001F4F6 MODEM 1 \U0001F4F6"
+  - "\U0001F4F6 MODEM 2 \U0001F4F6"
+  - "⚡ LB MODEM ⚡"
+- name: "\U0001F4F2 SOSMED \U0001F4F2"
+  type: select
+  proxies:
+  - "\U0001F4F6 MODEM 1 \U0001F4F6"
+  - "\U0001F4F6 MODEM 2 \U0001F4F6"
+  - "⚡ LB MODEM ⚡"
+- name: "\U0001F4B3 BANK-EWALLET \U0001F4B3"
+  type: select
+  proxies:
+  - "\U0001F4F6 MODEM 1 \U0001F4F6"
+  - "\U0001F4F6 MODEM 2 \U0001F4F6"
+  - "⚡ LB MODEM ⚡"
+- name: "\U0001F4FD️ STREAMING \U0001F4FD️"
+  type: select
+  proxies:
+  - "\U0001F4F6 MODEM 1 \U0001F4F6"
+  - "\U0001F4F6 MODEM 2 \U0001F4F6"
+  - "⚡ LB MODEM ⚡"
+- name: "\U0001F579️ TRAFFIC-GAMING \U0001F579️"
+  type: select
+  proxies:
+  - "\U0001F4F6 MODEM 1 \U0001F4F6"
+  - "\U0001F4F6 MODEM 2 \U0001F4F6"
+  - "\U0001F4E1 DIRECT MODEM 1 \U0001F4E1"
+  - "\U0001F4E1 DIRECT MODEM 2 \U0001F4E1"
+  - "⚡ LB MODEM ⚡"
+  - "\U0001F4A3 DIRECT-LB \U0001F4A3"
+- name: "\U0001F51E TRAFFIC-PORN \U0001F51E"
+  type: select
+  proxies:
+  - REJECT
+  - "\U0001F30E SERVER-BROWSING \U0001F30E"
+  - "⚡ LB MODEM ⚡"
+- name: "\U0001F680 SPEEDTEST \U0001F680"
+  type: select
+  proxies:
+  - "\U0001F4F6 MODEM 1 \U0001F4F6"
+  - "\U0001F4F6 MODEM 2 \U0001F4F6"
+  - "\U0001F4E1 DIRECT MODEM 1 \U0001F4E1"
+  - "\U0001F4E1 DIRECT MODEM 2 \U0001F4E1"
+  - "⚡ LB MODEM ⚡"
+  - "\U0001F4A3 DIRECT-LB \U0001F4A3"
+proxy-providers:
+  PP-Indo:
+    type: file
+    path: "./proxy_provider/pp-indo.yaml"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 60
+  PP-SG:
+    type: file
+    path: "./proxy_provider/pp-sg.yaml"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 60
+rules:
+- "GEOSITE,rule-gaming,\U0001F579️ TRAFFIC-GAMING \U0001F579️"
+- "GEOSITE,rule-speedtest,\U0001F680 SPEEDTEST \U0001F680"
+- "GEOSITE,urltest,\U0001F680 SPEEDTEST \U0001F680"
+- "GEOSITE,bank-id,\U0001F4B3 BANK-EWALLET \U0001F4B3"
+- "GEOSITE,rule-streaming,\U0001F4FD️ STREAMING \U0001F4FD️"
+- "GEOSITE,youtube,\U0001F4FD️ STREAMING \U0001F4FD️"
+- "GEOSITE,netflix,\U0001F4FD️ STREAMING \U0001F4FD️"
+- "GEOSITE,disney,\U0001F4FD️ STREAMING \U0001F4FD️"
+- "GEOSITE,spotify,\U0001F4FD️ STREAMING \U0001F4FD️"
+- "GEOSITE,videoconference,\U0001F4F2 SOSMED \U0001F4F2"
+- "GEOSITE,rule-sosmed,\U0001F4F2 SOSMED \U0001F4F2"
+- "GEOSITE,facebook,\U0001F4F2 SOSMED \U0001F4F2"
+- "GEOSITE,instagram,\U0001F4F2 SOSMED \U0001F4F2"
+- "GEOSITE,tiktok,\U0001F4F2 SOSMED \U0001F4F2"
+- "GEOSITE,telegram,\U0001F4F2 SOSMED \U0001F4F2"
+- "GEOIP,twitter,\U0001F4F2 SOSMED \U0001F4F2"
+- "GEOSITE,private,\U0001F51B REQUEST DIRECT \U0001F51B"
+- "GEOIP,private,\U0001F51B REQUEST DIRECT \U0001F51B"
+- "DST-PORT,123/136/137-139,\U0001F51B REQUEST DIRECT \U0001F51B,udp"
+- "GEOSITE,rule-indo,\U0001F51B REQUEST DIRECT \U0001F51B"
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- AND,((GEOSITE,oisd-full),(NOT,((DOMAIN-SUFFIX,googlesyndication.com)))),REJECT
+- AND,((GEOSITE,rule-ads),(NOT,((DOMAIN-SUFFIX,googlesyndication.com)))),REJECT
+- AND,((NETWORK,udp),(OR,((DST-PORT,443),(GEOSITE,youtube)))),REJECT
+- "GEOSITE,oisd-nsfw,\U0001F51E TRAFFIC-PORN \U0001F51E"
+- GEOSITE,rule-malicious,REJECT
+- GEOSITE,category-ads-all,REJECT
+- GEOSITE,ads-ultimate,REJECT
+- GEOSITE,rule-ads,REJECT
+- GEOSITE,rule-doh,REJECT
+- "GEOIP,GOOGLE,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "GEOIP,id,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "GEOIP,cloudflare,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "GEOIP,cloudfront,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "GEOSITE,GOOGLE,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "GEOSITE,rule-playstore,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "GEOSITE,rule-umum,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "GEOSITE,rule-ipcheck,\U0001F30E SERVER-BROWSING \U0001F30E"
+- "MATCH,\U0001F30E SERVER-BROWSING \U0001F30E"
+external-ui-name: metacubexd

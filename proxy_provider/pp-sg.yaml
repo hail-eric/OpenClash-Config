@@ -1,0 +1,19 @@
+proxies:
+- name: AKUN-ID
+  type: trojan
+  server: (bug/host)
+  port: 443
+  password: UUID/PASSWORD
+  udp: true
+  sni: (bug/host)
+  alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: random
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /path
+    headers:
+      Host: (bug/host)
+  interface-name: usb0 #sesuaikan dengan modem yang kalian gunakan jika hanya 1 modem isi interface modem tersebut dan samakan dengan akun ID interface nya

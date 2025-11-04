@@ -1,0 +1,69 @@
+payload:
+# ===== YOUTUBE =====
+  - DOMAIN-KEYWORD,youtube
+  - DOMAIN-KEYWORD,youtubemusic
+  - DOMAIN-SUFFIX,youtube.com
+  - DOMAIN-SUFFIX,youtu.be
+  - DOMAIN-SUFFIX,googlevideo.com
+  - DOMAIN-SUFFIX,ytimg.com
+  - DOMAIN-SUFFIX,ytimg.l.google.com
+  - DOMAIN-SUFFIX,youtube-nocookie.com
+  - DOMAIN-SUFFIX,youtubeeducation.com
+  - DOMAIN-SUFFIX,youtubekids.com
+  - DOMAIN-SUFFIX,music.youtube.com
+# ===== DOMAIN-KEYWORD RULES =====
+  - DOMAIN-KEYWORD,googlevideo
+  - DOMAIN-KEYWORD,netflix
+  - DOMAIN-KEYWORD,hbo
+  - DOMAIN-KEYWORD,primevideo
+  - DOMAIN-KEYWORD,disney
+  - DOMAIN-KEYWORD,hotstar
+  - DOMAIN-KEYWORD,viu
+  - DOMAIN-KEYWORD,iflix
+  - DOMAIN-KEYWORD,spotify
+  - DOMAIN-KEYWORD,twitch
+  - DOMAIN-KEYWORD,joox
+  - DOMAIN-KEYWORD,soundcloud
+  - DOMAIN-KEYWORD,deezer
+  - DOMAIN-KEYWORD,canva
+# ===== DOMAIN-SUFFIX RULES =====
+  - DOMAIN-SUFFIX,netflix.com
+  - DOMAIN-SUFFIX,netflix.net
+  - DOMAIN-SUFFIX,nflximg.net
+  - DOMAIN-SUFFIX,nflxvideo.net
+  - DOMAIN-SUFFIX,hbonow.com
+  - DOMAIN-SUFFIX,hbomax.com
+  - DOMAIN-SUFFIX,disneyplus.com
+  - DOMAIN-SUFFIX,hotstar.com
+  - DOMAIN-SUFFIX,primevideo.com
+  - DOMAIN-SUFFIX,viu.com
+  - DOMAIN-SUFFIX,iflix.com
+  - DOMAIN-SUFFIX,spotify.com
+  - DOMAIN-SUFFIX,scdn.co
+  - DOMAIN-SUFFIX,sndcdn.com
+  - DOMAIN-SUFFIX,twitch.tv
+  - DOMAIN-SUFFIX,joox.com
+  - DOMAIN-SUFFIX,soundcloud.com
+  - DOMAIN-SUFFIX,dzcdn.net
+  - DOMAIN-SUFFIX,deezer.com
+  - DOMAIN-SUFFIX,canva.com
+  - DOMAIN-SUFFIX,canva-cdn.com
+# ===== FULL DOMAIN RULES =====
+  - DOMAIN,cdn.optimizely.com
+  - DOMAIN,assets.mixpanel.com
+  - DOMAIN,secure-assetcdn.canva.com
+# ===== IP-CIDR RULES =====
+  - IP-CIDR,52.84.0.0/15,no-resolve
+  - IP-CIDR,13.224.0.0/14,no-resolve
+  - IP-CIDR,23.246.0.0/18,no-resolve        # Netflix
+  - IP-CIDR,37.77.184.0/21,no-resolve       # Netflix
+  - IP-CIDR,45.57.0.0/17,no-resolve         # HBO/Max
+  - IP-CIDR,185.2.220.0/22,no-resolve       # Disney+
+  - IP-CIDR,185.2.221.0/24,no-resolve       # Disney+
+  - IP-CIDR,64.120.128.0/17,no-resolve      # Amazon Prime
+  - IP-CIDR,54.230.0.0/16,no-resolve        # Amazon/Prime CDN
+  - IP-CIDR,108.175.32.0/20,no-resolve      # Netflix
+  - IP-CIDR,216.137.32.0/19,no-resolve      # CloudFront CDN (Prime/Disney)
+# ===== GEOIP RULES (Opsional) =====
+  - GEOIP,US,no-resolve
+  - GEOIP,SG,no-resolve

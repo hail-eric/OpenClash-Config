@@ -1,0 +1,75 @@
+payload:
+  # BCA
+  - DOMAIN-SUFFIX,klikbca.com
+  - DOMAIN-KEYWORD,klikbca
+  - DOMAIN-SUFFIX,www.bca.co.id
+  # BRI (BRI Link,  BRImo, BRIcredit)
+  - DOMAIN-SUFFIX,bri.co.id
+  - DOMAIN-KEYWORD,bri
+  # BNI
+  - DOMAIN-SUFFIX,bni.co.id
+  - DOMAIN-KEYWORD,bni
+  # Mandiri
+  - DOMAIN-SUFFIX,mandiri.co.id
+  - DOMAIN-SUFFIX,bankmandiri.co.id
+  - DOMAIN-KEYWORD,bankmandiri
+  # Bank Syariah Mandiri
+  - DOMAIN-SUFFIX,bsm.co.id
+  - DOMAIN-KEYWORD,bsm
+  # Muamalat
+  - DOMAIN-SUFFIX,bankmuamalat.co.id
+  - DOMAIN-KEYWORD,bankmuamalat
+  # E-Wallet & Marketplace
+  - DOMAIN-SUFFIX,tokopedia.com
+  - DOMAIN-SUFFIX,shopee.co.id
+  - DOMAIN-SUFFIX,shopeemobile.com
+  - DOMAIN-SUFFIX,bukalapak.com
+  - DOMAIN-SUFFIX,lazada.co.id
+  - DOMAIN-SUFFIX,blibli.com
+  - DOMAIN-SUFFIX,orami.co.id
+  - DOMAIN-SUFFIX,ralali.com
+  - DOMAIN-SUFFIX,bhinneka.com
+  - DOMAIN-SUFFIX,jd.id
+  - DOMAIN-SUFFIX,zalora.co.id
+  - DOMAIN-SUFFIX,gojek.com
+  - DOMAIN-SUFFIX,gobiz.co.id
+  - DOMAIN-SUFFIX,ovo.id
+  - DOMAIN-SUFFIX,dana.id
+  - DOMAIN-SUFFIX,linkaja.id
+  - DOMAIN-SUFFIX,octoclicks.co.id
+  - DOMAIN-SUFFIX,i-saku.com
+  - DOMAIN-SUFFIX,doku.com
+  - DOMAIN-SUFFIX,shopeepay.co.id
+  - DOMAIN-SUFFIX,grab.com
+  - DOMAIN-SUFFIX,grabtaxi.com
+  - DOMAIN-KEYWORD,gojek
+  - DOMAIN-KEYWORD,gobiz
+  - DOMAIN-KEYWORD,ovo
+  - DOMAIN-KEYWORD,dana
+  - DOMAIN-KEYWORD,linkaja
+  - DOMAIN-KEYWORD,octoclicks
+  - DOMAIN-KEYWORD,i-saku
+  - DOMAIN-KEYWORD,doku
+  - DOMAIN-KEYWORD,shopeepay
+  - DOMAIN-KEYWORD,grab
+  - DOMAIN-KEYWORD,grabtaxi
+  - DOMAIN-KEYWORD,tokopedia
+  - DOMAIN-KEYWORD,shopee
+  - DOMAIN-KEYWORD,bukalapak
+  - DOMAIN-KEYWORD,lazada
+  - DOMAIN-KEYWORD,blibli
+  - DOMAIN-KEYWORD,orami
+  - DOMAIN-KEYWORD,ralali
+  - DOMAIN-KEYWORD,bhinneka
+  - DOMAIN-KEYWORD,zalora
+  # My XL App
+  - DOMAIN-KEYWORD,xlaxiata
+  - DOMAIN-KEYWORD,xlaxiata2
+  - DOMAIN-KEYWORD,xlaxiata-resources
+  # My Telkomsel App
+  - DOMAIN-KEYWORD,telkomsel.com
+  - DOMAIN-KEYWORD,prd-idn-telkomsel-dap.timwe.com
+  - DOMAIN-KEYWORD,mobile.useinsider.com
+  - DOMAIN-KEYWORD,webportals.cachefly.net
+  - DOMAIN-KEYWORD,openai
+  - DOMAIN-SUFFIX,openai.com
