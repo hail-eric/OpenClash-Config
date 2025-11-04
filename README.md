@@ -19,9 +19,11 @@ File konfigurasi OpenClash (Clash Meta) yang sudah dioptimalkan untuk kebutuhan 
 
 Konfigurasi ini menggunakan **Full Geo** dan **rule-provider** agar mudah dikelola.
 
+**Full Geo** yang saya gunakan berasal dari https://github.com/rizkikotet-dev/GeoSite-WRT saya ucapkan terimakasih telah membuat source **Full Geo** yang **_lengkap, optimal, dan update to date._**
+
 ---
 
-**Target Core:** Konfigurasi ini berasal dari backup **DMS** dan ditujukan untuk arsitektur **x86_64**, **_silahkan rubah core sesuai dengan device yang Anda gunakan._**
+⚠️ **Target Core:** Konfigurasi ini berasal dari backup **DMS** **_(nama Hostname pada device saya)_** dan ditujukan untuk arsitektur **x86_64**, **_silahkan rubah core sesuai dengan device yang Anda gunakan._**
 
 ---
 
@@ -39,7 +41,49 @@ Konfigurasi ini dirancang untuk mendukung setup **Dual Modem** (atau lebih) seca
     * Akun di `pp-browsing.yaml` diatur ke `interface-name: eth2` (Modem B).
 * **💡 Untuk Pengguna Modem Tunggal (1 Modem):**
     Jangan khawatir, ini tetap bisa dipakai! Pastikan Anda **menyamakan** semua baris `interface-name:` di semua file akun Anda.
-    * Contoh: Jika modem Anda adalah `usb0` atau `eth1`, atur `interface-name: eth1` di **SEMUA** file akun Anda (`pp-indo.yaml`, `pp-browsing.yaml`, dll). Ini akan memastikan semua trafik keluar lewat modem Anda yang tunggal.
+    * Contoh: Jika modem Anda adalah `usb0` atau `eth1`, atur `interface-name: eth1` di **SEMUA** file akun Anda (`pp-indo.yaml`, `pp-sg.yaml`, dll). Ini akan memastikan semua trafik keluar lewat modem Anda yang tunggal _(1 Modem)_
+
+---
+
+## 🌐 Pengaturan DNS Khusus (Penting!)
+
+Harap dicatat bahwa konfigurasi ini **tidak mengambil pengaturan DNS dari dashboard/UI OpenClash Anda** 🚫
+
+Semua pengaturan DNS sudah diatur (di-hardcode) langsung di dalam file `config-wrt.yaml` untuk memastikan stabilitas dan fungsionalitas trik tertentu serta anti **_DNS LEAK_**
+
+Ini adalah pengaturan DNS yang digunakan di config ini:
+
+```yaml
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  default-nameserver:
+  - 9.9.9.9
+  - 149.112.112.112
+  nameserver:
+  - https://free.bravedns.com/dns-query
+  - https://dns.alidns.com/dns-query
+  fallback:
+  - tls://one.one.one.one
+  - tls://security.cloudflare-dns.com
+  proxy-server-nameserver:
+  - dhcp://usb0
+  - dhcp://eth1
+  - xxx.xxx.xxx.248  # <-- DNS Khusus (Sengaja disensor)
+  - xxx.xxx.xxx.254  # <-- DNS Khusus (Sengaja disensor)
+```
+
+✨ Info Trik DNS "**_xxx.xxx.xxx.248_** & **_xxx.xxx.xxx.254_**" :
+
+Anda akan melihat dua alamat DNS yang sengaja disensor (xxx.xxx...) di atas.
+
+Ini bukan DNS biasa. Ini adalah Trik DNS 🤫 yang digunakan untuk trik "Nol Kuota"
+
+IP DNS ini sudah include di file config-wrt.yaml setelah Anda subscribe atau mengunduhnya.
+
+Baris **_dhcp://usb0_** dan **_dhcp://eth1_** juga ditambahkan agar DNS bisa diambil secara dinamis dari modem Anda.
 
 ---
 
@@ -62,9 +106,9 @@ Anda bisa menggunakan file `config-wrt.yaml` ini sebagai file konfigurasi utama 
 2.  Buat file subscribe baru dan tempel URL di bawah ini:
 
     ```
-    [https://raw.githubusercontent.com/hail-eric/OpenClash-Config/main/config-wrt.yaml](https://raw.githubusercontent.com/hail-eric/OpenClash-Config/main/config-wrt.yaml)
+    https://raw.githubusercontent.com/hail-eric/OpenClash-Config/main/config-wrt.yaml
     ```
-    
+
 3.  Klik `Subscribe` dan gunakan profil tersebut.
 
 ## 📥 Download Backup (Untuk Restore Langsung)
@@ -77,9 +121,9 @@ Jika Anda tidak ingin subscribe, Anda bisa mengunduh file backup `.tar.gz`  utuh
 
 ## ⚠️ PERINGATAN PENTING
 
-Konfigurasi ini **TIDAK MENYERTAKAN AKUN PROXY**. Akun di dalam folder `proxy_provider/` hanyalah templat.
+Konfigurasi ini **TIDAK MENYERTAKAN AKUN PROXY**. Akun di dalam folder `proxy_provider/` hanyalah template.
 
-Anda **HARUS** mengedit file di dalam `proxy_provider/` (seperti `pp-indo.yaml` dan `pp-browsing.yaml`) dan mengisinya dengan akun Trojan/Vmess Anda sendiri.
+Anda **HARUS** mengedit file di dalam `proxy_provider/` (seperti `pp-indo.yaml` dan `pp-sg.yaml`) dan mengisinya dengan akun Trojan/Vmess Anda sendiri.
 
 ---
 
