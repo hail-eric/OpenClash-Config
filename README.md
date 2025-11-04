@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="httpsT://raw.githubusercontent.com/MetaCubeX/metacubexd/gh-pages/assets/Meta.png" alt="Config OpenClash" width="200"/>
+  <img src="https://github.com/hail-eric/OpenClash-Config/blob/main/Meta.png?raw=true" alt="Config OpenClash" width="200"/>
 </p>
 
 <h1 align="center">
@@ -12,8 +12,6 @@
 </p>
 
 <hr>
-
-...
 
 # 🚀 Konfigurasi OpenClash oleh B Σ N (hail-eric)
 
