@@ -1,8 +1,8 @@
 # 🚀 Konfigurasi OpenClash oleh B Σ N (hail-eric)
 
-[cite_start]File konfigurasi OpenClash (Clash Meta) [cite: 14] [cite_start]yang sudah dioptimalkan untuk kebutuhan gaming [cite: 66, 204][cite_start], streaming [cite: 185][cite_start], dan sosial media[cite: 119].
+File konfigurasi OpenClash (Clash Meta) yang sudah dioptimalkan untuk kebutuhan gaming, streaming, dan sosial media.
 
-[cite_start]Konfigurasi ini menggunakan `Full Geo` dan `rule-provider` [cite: 18, 19] agar mudah dikelola.
+Konfigurasi ini menggunakan **Full Geo** dan **rule-provider** agar mudah dikelola.
 
 ---
 
