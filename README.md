@@ -19,7 +19,7 @@ File konfigurasi OpenClash (Clash Meta) yang sudah dioptimalkan untuk kebutuhan 
 
 Konfigurasi ini menggunakan **Full Geo** dan **rule-provider** agar mudah dikelola.
 
-**Full Geo** yang saya gunakan berasal dari https://github.com/rizkikotet-dev/GeoSite-WRT saya ucapkan terimakasih telah membuat source **Full Geo** yang **_lengkap, optimal, dan update to date._**
+**Full Geo** yang saya gunakan berasal dari https://github.com/rizkikotet-dev/GeoSite-WRT saya ucapkan terimakasih telah membuat source **Full Geo** yang **_lengkap, optimal, dan up to date._**
 
 ---
 
